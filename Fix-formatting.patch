@@ -1,0 +1,48 @@
+From 45b26527727e2b364b55a94f40466d82c1b7fd6e Mon Sep 17 00:00:00 2001
+From: Jan Chaloupka <jchaloup@redhat.com>
+Date: Sun, 8 Jul 2018 20:41:52 +0200
+Subject: [PATCH] Fix formatting
+
+---
+ api_test.go | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/api_test.go b/api_test.go
+index da943b2..5cf39db 100644
+--- a/api_test.go
++++ b/api_test.go
+@@ -121,15 +121,15 @@ func TestCustomHeaders(t *testing.T) {
+ 	}
+ 
+ 	if contentType != "x-application/vb" {
+-		t.Fatalf("I expected x-application/vb; got ", contentType)
++		t.Fatalf("I expected x-application/vb; got %v", contentType)
+ 	}
+ 
+ 	if contentLength != "5" {
+-		t.Fatalf("I expected 5 byte content length; got ", contentLength)
++		t.Fatalf("I expected 5 byte content length; got %v", contentLength)
+ 	}
+ 
+ 	if accept != "x-application/c" {
+-		t.Fatalf("I expected x-application/c; got ", accept)
++		t.Fatalf("I expected x-application/c; got %v", accept)
+ 	}
+ }
+ 
+@@ -217,10 +217,10 @@ func TestBodilessMethodsAreSentWithoutContentHeaders(t *testing.T) {
+ 	}
+ 
+ 	if len(h["Content-Type"]) != 0 {
+-		t.Fatalf("I expected nothing for Content-Type but got ", h["Content-Type"])
++		t.Fatalf("I expected nothing for Content-Type but got %v", h["Content-Type"])
+ 	}
+ 
+ 	if len(h["Content-Length"]) != 0 {
+-		t.Fatalf("I expected nothing for Content-Length but got ", h["Content-Length"])
++		t.Fatalf("I expected nothing for Content-Length but got %v", h["Content-Length"])
+ 	}
+ }
+-- 
+2.7.5
+
